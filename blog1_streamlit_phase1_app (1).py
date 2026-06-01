@@ -148,6 +148,15 @@ if "current_part" not in st.session_state:
 if "parts" not in st.session_state:
     st.session_state.parts = []
 
+if st.session_state.keywords:
+    st.subheader("Keyword Research")
+
+    st.text_area(
+        "Keywords",
+        value=st.session_state.keywords,
+        height=300
+    )
+
 # -----------------------------
 # FUNCTIONS
 # -----------------------------
