@@ -105,6 +105,8 @@ if st.button("Generate Keywords"):
     prompt = f"""
     You are an SEO keyword expert.
 
+    Use the current year 2026, not 2024.
+
     Blog Title:
     {title}
 
