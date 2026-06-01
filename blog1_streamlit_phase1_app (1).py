@@ -98,10 +98,36 @@ audience = st.text_input(
 )
 
 # -----------------------------
-# NEW BUTTON
+# KEYWORD RESEARCH
 # -----------------------------
 if st.button("Generate Keywords"):
-    st.write("Keyword research coming in Phase 2")
+
+    prompt = f"""
+    You are an SEO keyword expert.
+
+    Blog Title:
+    {title}
+
+    Generate:
+
+    1. Main Keyword
+    2. 10 Secondary Keywords
+    3. 10 Long Tail Keywords
+    4. 10 Questions People Ask
+
+    Format clearly.
+    """
+
+    response = client.chat.completions.create(
+        model=model_choice,
+        messages=[
+            {"role": "system", "content": "You are an SEO keyword researcher."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.5
+    )
+
+    st.session_state.keywords = response.choices[0].message.content
 
 
 # -----------------------------
