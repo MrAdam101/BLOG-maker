@@ -98,6 +98,13 @@ audience = st.text_input(
 )
 
 # -----------------------------
+# NEW BUTTON
+# -----------------------------
+if st.button("Generate Keywords"):
+    st.write("Keyword research coming in Phase 2")
+
+
+# -----------------------------
 # SESSION STATE
 # -----------------------------
 if "outline" not in st.session_state:
@@ -105,6 +112,15 @@ if "outline" not in st.session_state:
 
 if "blog_post" not in st.session_state:
     st.session_state.blog_post = ""
+
+if "keywords" not in st.session_state:
+    st.session_state.keywords = ""
+
+if "current_part" not in st.session_state:
+    st.session_state.current_part = 0
+
+if "parts" not in st.session_state:
+    st.session_state.parts = []
 
 # -----------------------------
 # FUNCTIONS
